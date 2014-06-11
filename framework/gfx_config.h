@@ -104,7 +104,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
   GFX_CONFIG_FONT_CHAR_SIZE
 *********************************************************************/
-#define GFX_CONFIG_FONT_CHAR_SIZE 16
+#define GFX_CONFIG_FONT_CHAR_SIZE 8
 
 /*********************************************************************
   Overview: Font data can be placed in multiple locations. They can be

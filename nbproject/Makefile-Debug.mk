@@ -13,8 +13,8 @@ ifeq "${IGNORE_LOCAL}" "TRUE"
 else
 include Makefile
 # Include makefile containing local settings
-ifeq "$(wildcard nbproject/Makefile-local-default.mk)" "nbproject/Makefile-local-default.mk"
-include nbproject/Makefile-local-default.mk
+ifeq "$(wildcard nbproject/Makefile-local-Debug.mk)" "nbproject/Makefile-local-Debug.mk"
+include nbproject/Makefile-local-Debug.mk
 endif
 endif
 
@@ -25,7 +25,7 @@ MV=mv
 CP=cp 
 
 # Macros
-CND_CONF=default
+CND_CONF=Debug
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 IMAGE_TYPE=debug
 OUTPUT_SUFFIX=elf
@@ -72,10 +72,10 @@ LDLIBSOPTIONS=
 FIXDEPS=fixDeps
 
 .build-conf:  ${BUILD_SUBPROJECTS}
-	${MAKE} ${MAKE_OPTIONS} -f nbproject/Makefile-default.mk dist/${CND_CONF}/${IMAGE_TYPE}/CarMikroe.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+	${MAKE} ${MAKE_OPTIONS} -f nbproject/Makefile-Debug.mk dist/${CND_CONF}/${IMAGE_TYPE}/CarMikroe.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 
 MP_PROCESSOR_OPTION=32MX460F512L
-MP_LINKER_FILE_OPTION=,--script="..\PIC32Bootloader\linker_scripts\app\app_32MX460F512L.ld"
+MP_LINKER_FILE_OPTION=
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: assemble
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
@@ -90,7 +90,7 @@ ${OBJECTDIR}/internal_resource.o: internal_resource.S  nbproject/Makefile-${CND_
 	@${RM} ${OBJECTDIR}/internal_resource.o.d 
 	@${RM} ${OBJECTDIR}/internal_resource.o 
 	@${RM} ${OBJECTDIR}/internal_resource.o.ok ${OBJECTDIR}/internal_resource.o.err 
-	@${FIXDEPS} "${OBJECTDIR}/internal_resource.o.d" "${OBJECTDIR}/internal_resource.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -D__DEBUG  -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/internal_resource.o.d"  -o ${OBJECTDIR}/internal_resource.o internal_resource.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/internal_resource.o.asm.d",--defsym=__MPLAB_DEBUG=1,--gdwarf-2,--defsym=__DEBUG=1,-asd
+	@${FIXDEPS} "${OBJECTDIR}/internal_resource.o.d" "${OBJECTDIR}/internal_resource.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -D__DEBUG  -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/internal_resource.o.d"  -o ${OBJECTDIR}/internal_resource.o internal_resource.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/internal_resource.o.asm.d",--defsym=__MPLAB_DEBUG=1,--gdwarf-2,--defsym=__DEBUG=1
 	
 else
 ${OBJECTDIR}/internal_resource.o: internal_resource.S  nbproject/Makefile-${CND_CONF}.mk
@@ -98,7 +98,7 @@ ${OBJECTDIR}/internal_resource.o: internal_resource.S  nbproject/Makefile-${CND_
 	@${RM} ${OBJECTDIR}/internal_resource.o.d 
 	@${RM} ${OBJECTDIR}/internal_resource.o 
 	@${RM} ${OBJECTDIR}/internal_resource.o.ok ${OBJECTDIR}/internal_resource.o.err 
-	@${FIXDEPS} "${OBJECTDIR}/internal_resource.o.d" "${OBJECTDIR}/internal_resource.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/internal_resource.o.d"  -o ${OBJECTDIR}/internal_resource.o internal_resource.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/internal_resource.o.asm.d",--gdwarf-2,-asd
+	@${FIXDEPS} "${OBJECTDIR}/internal_resource.o.d" "${OBJECTDIR}/internal_resource.o.asm.d" -t $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC} $(MP_EXTRA_AS_PRE)  -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/internal_resource.o.d"  -o ${OBJECTDIR}/internal_resource.o internal_resource.S  -Wa,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_AS_POST),-MD="${OBJECTDIR}/internal_resource.o.asm.d",--gdwarf-2
 	
 endif
 
@@ -201,12 +201,12 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: link
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-dist/${CND_CONF}/${IMAGE_TYPE}/CarMikroe.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    ../PIC32Bootloader/linker_scripts/app/app_32MX460F512L.ld
+dist/${CND_CONF}/${IMAGE_TYPE}/CarMikroe.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
 	${MP_CC} $(MP_EXTRA_LD_PRE)    -mprocessor=$(MP_PROCESSOR_OPTION)  -o dist/${CND_CONF}/${IMAGE_TYPE}/CarMikroe.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}              -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=_min_heap_size=2000,--defsym=_min_stack_size=512,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--report-mem,--cref
 	
 else
-dist/${CND_CONF}/${IMAGE_TYPE}/CarMikroe.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   ../PIC32Bootloader/linker_scripts/app/app_32MX460F512L.ld
+dist/${CND_CONF}/${IMAGE_TYPE}/CarMikroe.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
 	${MP_CC} $(MP_EXTRA_LD_PRE)  -mprocessor=$(MP_PROCESSOR_OPTION)  -o dist/${CND_CONF}/${IMAGE_TYPE}/CarMikroe.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}          -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--defsym=_min_heap_size=2000,--defsym=_min_stack_size=512,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--report-mem,--cref
 	${MP_CC_DIR}\\xc32-bin2hex dist/${CND_CONF}/${IMAGE_TYPE}/CarMikroe.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} 
@@ -222,8 +222,8 @@ endif
 
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
-	${RM} -r build/default
-	${RM} -r dist/default
+	${RM} -r build/Debug
+	${RM} -r dist/Debug
 
 # Enable dependency checking
 .dep.inc: .depcheck-impl

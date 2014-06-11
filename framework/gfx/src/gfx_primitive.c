@@ -4586,6 +4586,7 @@ uint16_t __attribute__((weak)) GFX_TextStringWidthFlashGet(
     textWidth = 0;
     while((GFX_UXCHAR)15 < (GFX_UXCHAR)(ch = *pString++))
     {
+        if ((ch) == 86) fontFirstChar = 32;
         if((GFX_UXCHAR)ch < (GFX_UXCHAR)fontFirstChar)
             continue;
         if((GFX_UXCHAR)ch > (GFX_UXCHAR)fontLastChar)

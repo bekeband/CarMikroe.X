@@ -18,6 +18,8 @@ extern "C" {
 #define GFX_CONFIG_FONT_EXTERNAL_DISABLE
 #define GFX_CONFIG_IMAGE_EXTERNAL_DISABLE
 #define GFX_CONFIG_COLOR_DEPTH 16
+//#define GFX_CONFIG_RGB_COLOR_ORDER
+#define GFX_CONFIG_BGR_COLOR_ORDER
 
 /*********************************************************************
 * Overview: Basic colors definitions.

@@ -4,8 +4,8 @@
 
 void delay(long period)
 {
+  OpenTimer23(T23_ON | T23_IDLE_CON | T23_PS_1_256 | T23_SOURCE_INT, period);
   IFS0bits.T3IF = 0;
-  OpenTimer23(T23_ON | T23_IDLE_CON | T23_PS_1_32 | T23_SOURCE_INT, period);
   while (!IFS0bits.T3IF) ;
   CloseTimer23();
 
@@ -17,10 +17,10 @@ void delay(long period)
 
 void __delay_ms(long msec)
 {
-  delay(msec * 4000);
+  delay(msec * 312);
 }
 
 void __delay_us(long usec)
 {
-  delay(usec * 40);
+  delay(usec);
 }

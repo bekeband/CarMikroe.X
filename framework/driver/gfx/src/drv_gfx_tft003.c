@@ -250,12 +250,19 @@ void DRV_GFX_Initialize(void)
     DRV_GFX_CommandWrite(0x36); // memory access control
 //    DRV_GFX_DataWrite(0x48);    // 48 my,mx,mv,ml,BGR,mh,0.0
 
+#if defined (GFX_CONFIG_RGB_COLOR_ORDER)
+#if (DISP_ORIENTATION == 0)
+    DRV_GFX_DataWrite(0x00);  //  my,mx,mv,ml,BGR,mh,0.0
+#else
+    DRV_GFX_DataWrite(0x30);  //  my,mx,mv,ml,BGR,mh,0.0
+#endif
+#elif defined (GFX_CONFIG_BGR_COLOR_ORDER)
 #if (DISP_ORIENTATION == 0)
     DRV_GFX_DataWrite(0x08);  //  my,mx,mv,ml,BGR,mh,0.0
 #else
     DRV_GFX_DataWrite(0x38);  //  my,mx,mv,ml,BGR,mh,0.0
 #endif
-
+#endif
     DRV_GFX_CommandWrite(0x3A); // pixel format set
     DRV_GFX_DataWrite(0x55);    // 16bit /pixel
 //----------------- frame rate------------------------------
